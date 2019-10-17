@@ -1,0 +1,14 @@
+<div>投稿画面の実装</div>
+
+<div class="contents row">
+  <div class="container">
+    <%= form_with(model: @comment, local: true) do |form| %>
+      <h3>
+        投稿する
+      </h3>
+      <%= form.text_field :name, placeholder: "Nickname" %>
+      <%= form.text_area :content, placeholder: "content" , rows: "10" %>
+      <%= form.submit "SEND" %>
+    <% end %>
+  </div>
+</div>

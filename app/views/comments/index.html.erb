@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>aaa-app</title>
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="22+aEoPfNnLLVzBM8+AP/SHBFJzOYU4Hz4DEmc5Gx/IJhrBXov6smFhJudno40T3W5MPjuubYPWUOuBbjzV87A==" />
+    
+
+   <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" media="all" href="/assets/application-bbd9da9f13a509113af9749dad0490804d5c495b2fdb6e09c4fcfbb39d14bbbf.css" data-turbolinks-track="reload" />
+    <script src="/assets/application-9622f0fe63bfad91bdeaa3a771e86262263840678fd66849b311b6cfb3f7cc85.js" data-turbolinks-track="reload"></script>
+
+
+  </head>
+
+  <body>
+    <nav style="padding: 0 5px;" class="deep-orange">
+      <div class="nav-wrapper ">
+        <a href="/" class="brand-logo center">aaa-app</a>
+        <% if user_signed_in?%>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="/posts/new">投稿する</a></li>
+            <li><a rel="nofollow" data-method="delete" href="/users/sign_out">サインアウト</a></li>
+        </ul>
+      </div>
+      <% else %>
+          <div class="grid-6">
+            <%= link_to "ログイン", new_user_session_path, class: 'post' %>
+            <%= link_to "新規登録", new_user_registration_path, class: 'post' %>
+          </div>
+          <% end%>
+    </nav>
+    <p id="notice"></p>
+
+  <div class="row" >
+  <% @comments.each do |comment|%>
+    <div class="col s12 m6 offset-m3">
+      <div class="card">
+        <div class="card-content deep-orange-text">
+          <%= comment.content%>
+        </div>
+        <div class="card-action">
+        </div>
+      </div>
+    </div>
+    <%  end%>
+  </div>
+
+  
+  </div>
+<div class="container center" style = "margin-bottom: 50px;">
+  
+  <ul class="pagination">
+    <span class="prev">
+  &lsaquo; Prev
+</span>
+
+        <span class="page current">
+  1
+</span>
+
+        <span class="page">
+  <a rel="next" href="/?page=2">2</a>
+</span>
+
+        <span class="page">
+  <a href="/?page=3">3</a>
+</span>
+
+        <span class="page">
+  <a href="/?page=4">4</a>
+</span>
+
+        <span class="page">
+  <a href="/?page=5">5</a>
+</span>
+
+        <span class="page gap">&hellip;</span>
+
+    <span class="next">
+  <a rel="next" href="/?page=2">Next &rsaquo;</a>
+</span>
+
+  </ul>
+
+</div>
+
+
+  </body>
+</html>
