@@ -3,4 +3,5 @@ Rails.application.routes.draw do
  root to:'comments#index'
  get 'posts/new' => 'comments#new'
  post 'posts/new' => 'comments#create'
+ delete 'comments/:id' => 'comments#destroy'
 end

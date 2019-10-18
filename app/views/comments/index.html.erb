@@ -49,6 +49,15 @@
           <%= comment.content%>
         </div>
         <div class="card-action">
+        <span class="name">
+          <a href="">
+            <span>投稿者</span><br><%= comment.user.nickname %>
+          </a>
+        </span>
+        <%if user_signed_in? && current_user.id == comment.user_id %>
+        <span>
+        <%= link_to '削除', "/comments/#{comment.id}", method: :delete %>
+        <%  end%>
         </div>
       </div>
     </div>
