@@ -17,7 +17,7 @@ def comment_params
 end
 
 def destroy
-  tweet = comment.find(params[:id])
+  comment = comment.find(params[:id])
   if comment.user_id == current_user.id
     comment.destroy
   end
